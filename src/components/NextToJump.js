@@ -42,9 +42,8 @@ export const NextToJump = () => {
         );
         setRaceData(data?.data.race_summaries);
         setUpcomingRaces(data?.data?.next_to_go_ids);
-        setLoading(false);
         setRefreshData(false);
-        console.log("trigger");
+        setLoading(false);
       } catch (err) {
         setLoading(true);
         setError("Ooops, there seems to be an issue.");
@@ -63,6 +62,7 @@ export const NextToJump = () => {
     <UpcomingRaceContainer>
       <h2>Next To Race</h2>
       {upcomingRaces.map((race) => {
+        // if raceId is set, show only that category, else show all types
         if (raceData[race].category_id === raceType || raceType === "all") {
           return (
             <UpcomingRace

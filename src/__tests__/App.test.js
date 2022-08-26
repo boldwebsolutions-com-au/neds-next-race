@@ -40,7 +40,6 @@ describe("fetchData", () => {
 
       // when
       const result = await fetchData();
-      console.log(result);
       // then
       expect(axios.get).toHaveBeenCalledWith(`${URL}`);
       expect(result).toEqual(mockData);
